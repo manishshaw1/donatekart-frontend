@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Frontend Assignment</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+  </head>
+  <body ng-app="assignmentApp">
+    <div ng-controller="assignmentController">
+      <div class="container" ng-init="initializeProduct()">
+        <h1>Products</h1>
+        <span>Currency</span>
+        <select ng-model="currency" ng-change="changePrice()">
+          <option selected value="INR">INR</option>
+          <option value="USD">USD</option>
+        </select>
+        <div ng-repeat="product in products">
+          <div class="row col-md-4">
+            <img
+              ng-attr-src="{{product.imgSrc}}"
+              style="width: 100%"
+              width="300px"
+              height="300px"
+            />
+            <div style="text-align: center" ng-bind="product.name"></div>
+            <div style="text-align: center" ng-bind="product.cost"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./app.js"></script>
+    <script src="./assignmentController.js"></script>
+  </body>
+</html>
